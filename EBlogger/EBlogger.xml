@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EBlogger</name>
+    </assembly>
+    <members>
+        <member name="M:EBlogger.Controllers.BlogController.Get">
+            <summary>
+            For get all Blogs with Commets
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
