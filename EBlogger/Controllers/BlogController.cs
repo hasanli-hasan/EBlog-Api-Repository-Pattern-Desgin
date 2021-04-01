@@ -25,11 +25,9 @@ namespace EBlogger.Controllers
     public class BlogController : ControllerBase
     {
         private readonly IBlogRepository _blogRepo;
-        private readonly AppDbContext _context;
-        public BlogController(IBlogRepository blogRepo, AppDbContext context)
+        public BlogController(IBlogRepository blogRepo)
         {
             _blogRepo = blogRepo;
-            _context = context;
         }
 
 
@@ -57,8 +55,19 @@ namespace EBlogger.Controllers
         // POST api/blog
         [HttpPost]
         //[Authorize(Roles ="Admin")]
-        public async Task<ActionResult> Post([FromBody] BlogCreateDto blogCreateDto)
+        public async Task<ActionResult> Post([FromForm] BlogCreateDto blogCreateDto)
         {
+            if (!blogCreateDto.Photo.ContentType.Contains("image/"))
+            {
+                return BadRequest("Please Select Image Type");
+            }
+
+            if (blogCreateDto.Photo.Length/1024 >500)
+            {
+                return BadRequest("Image Max Size be 200 KB");
+            }
+
+
             if (!ModelState.IsValid) return BadRequest();
             await _blogRepo.CreateAsync(blogCreateDto);
             return NoContent();

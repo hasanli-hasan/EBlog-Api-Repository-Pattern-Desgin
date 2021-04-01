@@ -14,6 +14,7 @@ namespace EBlogger.DTO
         [Required(ErrorMessage = "Title is Required")]
         public string Title { get; set; }
         public string Body { get; set; }
+        public string Image { get; set; }
         public virtual ICollection<CommetDto>Commets { get; set; }
     }
 }

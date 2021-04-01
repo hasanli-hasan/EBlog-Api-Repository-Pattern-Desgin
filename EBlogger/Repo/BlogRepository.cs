@@ -3,9 +3,11 @@ using EBlogger.DAL;
 using EBlogger.DTO;
 using EBlogger.DTO.BlogDTO;
 using EBlogger.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,16 +17,24 @@ namespace EBlogger.Repo
     {
         private readonly IMapper _mapper;
         private readonly AppDbContext _context;
+        private readonly IWebHostEnvironment _env;
 
-        public BlogRepository(IMapper mapper, AppDbContext context)
+        public BlogRepository(IMapper mapper, AppDbContext context, IWebHostEnvironment env)
         {
             _mapper = mapper;
             _context = context;
+            _env = env;
         }
 
         public async Task CreateAsync(BlogCreateDto blogCreateDto)
         {
+
             Blog newBlog = _mapper.Map<Blog>(blogCreateDto);
+            newBlog.Image = Guid.NewGuid().ToString() + newBlog.Photo.FileName;
+            string path = Path.Combine(_env.WebRootPath,"blogImages");
+            string resultPath = Path.Combine(path,newBlog.Image);
+            FileStream fileStream = new FileStream(resultPath,FileMode.Create);
+            await newBlog.Photo.CopyToAsync(fileStream);
 
               await _context.Blogs.AddAsync(newBlog);
               await _context.SaveChangesAsync();
