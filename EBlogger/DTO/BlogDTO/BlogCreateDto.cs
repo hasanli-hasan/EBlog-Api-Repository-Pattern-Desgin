@@ -10,7 +10,8 @@ namespace EBlogger.DTO
 {
     public class BlogCreateDto
     {
-       // [Required(ErrorMessage = "Title is Required")]
+        public int Id { get; set; }
+        // [Required(ErrorMessage = "Title is Required")]
         public string Title { get; set; }
         public string Body { get; set; }
         [NotMapped]

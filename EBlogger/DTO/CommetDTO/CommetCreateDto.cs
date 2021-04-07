@@ -9,6 +9,5 @@ namespace EBlogger.DTO
     {
         public string Message { get; set; }
         public int BlogId { get; set; }
-        public BlogDto Blog { get; set; }
     }
 }

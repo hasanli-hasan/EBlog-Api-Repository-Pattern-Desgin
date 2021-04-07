@@ -15,6 +15,7 @@ namespace EBlogger.DTO
         public string Title { get; set; }
         public string Body { get; set; }
         public string Image { get; set; }
+        public int WriteCount { get; set; }
         public virtual ICollection<CommetDto>Commets { get; set; }
     }
 }

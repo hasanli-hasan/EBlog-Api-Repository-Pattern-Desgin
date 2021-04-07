@@ -16,7 +16,7 @@ namespace EBlogger.Models
         [Required(ErrorMessage = "Title is Required")]
         public string Title { get; set; }
         public string Body { get; set; }
-
+        public int WriteCount { get; set; }
         public string Image { get; set; }
         [NotMapped]
         public IFormFile Photo { get; set; }

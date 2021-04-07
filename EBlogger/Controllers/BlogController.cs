@@ -21,7 +21,7 @@ namespace EBlogger.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class BlogController : ControllerBase
     {
         private readonly IBlogRepository _blogRepo;
@@ -54,7 +54,7 @@ namespace EBlogger.Controllers
 
         // POST api/blog
         [HttpPost]
-        //[Authorize(Roles ="Admin")]
+        [Authorize(Roles ="Admin")]
         public async Task<ActionResult> Post([FromForm] BlogCreateDto blogCreateDto)
         {
             if (!blogCreateDto.Photo.ContentType.Contains("image/"))
@@ -75,10 +75,10 @@ namespace EBlogger.Controllers
 
         // PUT api/blog/5
         [HttpPut("{id}")]
-      //  [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> Put([FromBody] BlogUpdateDto blogUpdateDto)
+      [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> Put(int id,[FromForm] BlogUpdateDto blogUpdateDto)
         {
-           await _blogRepo.UpdateBlog(blogUpdateDto);
+           await _blogRepo.UpdateBlog(id,blogUpdateDto);
             return StatusCode(StatusCodes.Status200OK);
         }
 

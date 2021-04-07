@@ -13,7 +13,7 @@ namespace EBlogger.Repo
         List<BlogDto> GetAllBlogs();
         Task<BlogDto> GetSingleBlog(int id);
         Task CreateAsync(BlogCreateDto blogCreateDto);
-        Task UpdateBlog(BlogUpdateDto blogUpdateDto);
+        Task UpdateBlog(int id,BlogUpdateDto blogUpdateDto);
         Task DeleteBlog(int id);
 
     }

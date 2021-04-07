@@ -10,7 +10,6 @@ namespace EBlogger.DTO
     {
         public int Id { get; set; }
         public string Message { get; set; }
-        public int BlogId { get; set; }
-        public BlogDto Blog { get; set; }
+       // public int BlogId { get; set; }
     }
 }

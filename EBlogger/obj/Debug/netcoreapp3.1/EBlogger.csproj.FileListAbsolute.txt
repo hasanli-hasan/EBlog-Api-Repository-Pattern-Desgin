@@ -94,6 +94,4 @@ E:\User\Hasan\Projects\API\EBlogger\EBlogger\bin\Debug\netcoreapp3.1\runtimes\wi
 E:\User\Hasan\Projects\API\EBlogger\EBlogger\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Security.AccessControl.dll
 E:\User\Hasan\Projects\API\EBlogger\EBlogger\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 E:\User\Hasan\Projects\API\EBlogger\EBlogger\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
-E:\User\Hasan\Projects\API\EBlogger\EBlogger\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
-E:\User\Hasan\Projects\API\EBlogger\EBlogger\bin\Debug\netcoreapp3.1\System.Web.Http.dll
 E:\User\Hasan\Projects\API\EBlogger\EBlogger\bin\Debug\netcoreapp3.1\Ninject.dll
